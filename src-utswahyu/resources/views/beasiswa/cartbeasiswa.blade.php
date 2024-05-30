@@ -1,9 +1,7 @@
 @extends('layouts.index')
 
 @section('carditem')
-
 <!-- card item section -->
-
 <h2 class="section-heading">BEASISWA UNGGULAN</h2>
 <div class="card--list">
     @foreach ($beasiswas as $beasiswa)
@@ -19,5 +17,4 @@
     </div>
     @endforeach
 </div>
-
 @endsection

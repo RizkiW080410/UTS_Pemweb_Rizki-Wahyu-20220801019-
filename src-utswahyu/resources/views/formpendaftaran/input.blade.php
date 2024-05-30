@@ -48,7 +48,8 @@
         .pendaftaran-form input[type="text"],
         .pendaftaran-form input[type="email"],
         .pendaftaran-form input[type="date"],
-        .pendaftaran-form input[type="number"] {
+        .pendaftaran-form input[type="number"],
+        .pendaftaran-form input[type="file"] {
             width: calc(100% - 22px);
             padding: 10px;
             margin: 0;
@@ -68,10 +69,19 @@
             font-size: 1.2em;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-bottom: 10px;
         }
 
         .pendaftaran-form button:hover {
             background-color: #0056b3;
+        }
+
+        .pendaftaran-form .btn-cancel {
+            background-color: #6c757d;
+        }
+
+        .pendaftaran-form .btn-cancel:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
@@ -79,7 +89,7 @@
     <div class="pendaftaran-form">
         <h2>Daftar Beasiswa: {{ $beasiswa->name_beasiswa }}</h2>
     
-        <form action="{{ route('pendaftaran.store', $beasiswa->id) }}" method="POST">
+        <form action="{{ route('pendaftaran.store', $beasiswa->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="fullname">Full Name:</label>
@@ -114,7 +124,12 @@
                 <input type="number" step="0.01" id="nilai" name="nilai" required>
             </div>
             <div>
+                <label for="transkrip_nilai">Transkrip Nilai:</label>
+                <input type="file" id="transkrip_nilai" name="transkrip_nilai" required>
+            </div>
+            <div>
                 <button type="submit">Submit</button>
+                <button type="button" class="btn-cancel" onclick="history.back();">Cancel</button>
             </div>
         </form>
     </div>

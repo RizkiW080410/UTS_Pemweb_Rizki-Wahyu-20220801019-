@@ -25,10 +25,20 @@ class PendaftaranController extends Controller
             'tempat_lahir' => 'required|string|max:255',
             'NIK' => 'required|string|max:16',
             'nilai' => 'required|numeric',
+            'transkrip_nilai' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
-        $pendaftaran = new Pendaftaran($request->all());
-        $pendaftaran->save();
+        $data = $request->except('transkrip_nilai');
+
+        if ($request->hasFile('transkrip_nilai')) {
+            $file = $request->file('transkrip_nilai');
+            $path = $file->store('transkrip_nilai', 'public');
+            $data['transkrip_nilai'] = $path;
+        }
+
+        $data['beasiswa_id'] = $id;
+
+        Pendaftaran::create($data);
 
         return redirect()->route('beasiswa.show', $id)->with('success', 'Pendaftaran berhasil!');
     }

@@ -49,9 +49,9 @@
                         <th>
                             {{ trans('cruds.pendaftaran.fields.nilai') }}
                         </th>
-                        {{-- <th>
-                            {{ trans('cruds.pendaftaran.fields.beasiswa') }}
-                        </th> --}}
+                        <th>
+                            {{ trans('cruds.pendaftaran.fields.transkrip_nilai') }}
+                        </th>
                         <th>
                             &nbsp;
                         </th>
@@ -89,6 +89,13 @@
                             </td>
                             <td>
                                 {{ $daftar->nilai ?? '' }}
+                            </td>
+                            <td>
+                                @if($daftar->transkrip_nilai)
+                                    <a href="{{ asset('storage/' . $daftar->transkrip_nilai) }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('pendaftaran_show')

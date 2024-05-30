@@ -137,6 +137,8 @@ return [
             'NIK_helper'    => ' ',
             'nilai'           => 'nilai rata-rata',
             'nilai_helper'    => ' ',
+            'transkrip_nilai'    => 'transkrip nilai',
+            'transkrip_nilai_helper'    => ' ',
             'created_at'         => 'Created at',
             'created_at_helper'  => ' ',
             'updated_at'         => 'Updated at',

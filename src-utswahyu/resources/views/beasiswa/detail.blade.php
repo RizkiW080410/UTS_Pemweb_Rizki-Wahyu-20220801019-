@@ -47,20 +47,38 @@
             color: #333;
         }
 
-        .btn-register {
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-register, .btn-cancel {
             display: inline-block;
-            background-color: #007bff;
-            color: #fff;
             padding: 10px 20px;
             font-size: 1em;
             border-radius: 5px;
             text-align: center;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .btn-register {
+            background-color: #007bff;
+            color: #fff;
         }
 
         .btn-register:hover {
             background-color: #0056b3;
+        }
+
+        .btn-cancel {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-cancel:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
@@ -75,7 +93,10 @@
         <p>{!! $beasiswa->description !!}</p>
         <p><strong>Start:</strong> {{ $beasiswa->start_beasiswa }}</p>
         <p><strong>Finish:</strong> {{ $beasiswa->finish_beasiswa }}</p>
-        <a href="{{ route('pendaftaran.create', $beasiswa->id) }}" class="btn-register">Daftar</a>
+        <div class="btn-container">
+            <a href="{{ route('pendaftaran.create', $beasiswa->id) }}" class="btn-register">Daftar</a>
+            <button type="button" class="btn-cancel" onclick="history.back();">Cancel</button>
+        </div>
     </div>
 </body>
 </html>

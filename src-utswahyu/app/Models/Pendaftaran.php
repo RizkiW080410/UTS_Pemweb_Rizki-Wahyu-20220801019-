@@ -30,6 +30,7 @@ class Pendaftaran extends Model
         'tempat_lahir',
         'NIK',
         'nilai',
+        'transkrip_nilai',
         'created_at',
         'updated_at',
         'deleted_at',

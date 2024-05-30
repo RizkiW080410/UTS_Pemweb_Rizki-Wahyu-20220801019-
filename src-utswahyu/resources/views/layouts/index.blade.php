@@ -35,53 +35,7 @@
         @yield('carditem')
     </main>
     <script>
-        const cartIcon = document.querySelector('.cart-icon');
-
-        cartIcon.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
-
-        const closeButton = document.querySelector('.sidebar-close');
-        closeButton.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-        });
-
-        // remove
-        document.querySelectorAll('.remove-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const url = this.getAttribute('data-id');
-                fetch(url, {
-                    method: 'GET',
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.reload();
-                    } else {
-                        console.error('Error removing product from cart:', response.statusText);
-                    }
-                })
-                .catch(error => console.error('Error removing product from cart:', error));
-            });
-        });
-
-        // untuk mengurangi pesanan
-        document.querySelectorAll('.decrease-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const url = this.getAttribute('data-id');
-                fetch(url, {
-                    method: 'GET',
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.reload();
-                    } else {
-                        console.error('Error decreasing product quantity:', response.statusText);
-                    }
-                })
-                .catch(error => console.error('Error decreasing product quantity:', error));
-            });
-        });
-        // fitur search
+        // Search functionality
         const searchInput = document.getElementById('searchInput');
 
         searchInput.addEventListener('input', () => {
